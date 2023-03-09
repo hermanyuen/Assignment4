@@ -1,0 +1,20 @@
+Let's explore an open-ended design problem to which we can apply our skills in the design of object-centered systems. 
+
+You are the chief designer of a consulting firm and you have been hired by The First National Bank to upgrade its customer database. 
+You have chosen to rewrite the database using C++. Each customer account consists of a savings account and a checking account.
+Begin the design by developing a set of use cases for the combined account that will describe how a customer may interact with the account.
+
+Based upon your design thus far, use CRC cards to identify each of the classes that comprise your design. 
+Be certain to identify the primary public and private aspects of each of the classes that make up a customer account.
+
+Express each of the classes that you have identified in a class diagram. Don't get carried away here. There are only a couple of basic attributes of such an account.
+
+To turn in your CRC cards, you can scan/photograph or copy them to a single computer document, specify a URL... anything works, just let us know in this document where to find them.
+
+To turn in your class diagram you can scan/photograph hand drawings, or draw the class diagram using a computer graphics program, then provide the drawing in a PDF, JPEG, or other common format.  
+Or URL... again, anything works, just let us know in this document where to find them.
+
+==========================================================================================
+My CRC cards are located ______
+
+My class diagrams are located _______
