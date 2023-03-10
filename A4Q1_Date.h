@@ -24,3 +24,18 @@
 //For example, the following function returns by value a new Date instance with one day added to the passed-in date:
 //
 //Date addOneDay(const Date& date);
+
+struct Date
+{
+    int year;
+    int month;
+    int day;
+};
+
+
+Date addOneDay(Date& date);
+
+Date addOneMonth(Date& date);
+
+Date addOneYear(Date& date);
+
