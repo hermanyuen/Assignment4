@@ -13,3 +13,34 @@
 // Declare an instance of the SimpleClass in 'f2' that uses the copy constructor. Pass that instance by reference to function 'f3'.
 // Declare a function 'f4' that takes a pointer to an instance of SimpleClass. Call 'f4' from within 'f3' using a pointer to the argument passed into 'f3'.
 // How many instances of your class were constructed? How many instances of your class were destructed? Why?
+
+#include <iostream>
+
+class SimpleClass {
+public:
+	SimpleClass() {
+		std::cout << "default constructor" << "\n";
+	}
+
+	SimpleClass(const SimpleClass& src) {
+		std::cout << "copy constructor" << "\n";
+	}
+	~SimpleClass(){
+		std::cout << "destroy object" << "\n";
+	}
+
+	SimpleClass f1(SimpleClass aSimpleClass) {
+		SimpleClass obj2;
+		return obj2;
+	}
+	SimpleClass f2(SimpleClass aSimpleClass) {
+		SimpleClass obj3;
+		return SimpleClass(obj3);
+	}
+	void f3(SimpleClass& aSimpleClass) {
+		//SimpleClass* temp = &aSimpleClass;
+		f4(&aSimpleClass);
+	}
+	void f4(SimpleClass* aSimpleClass);
+
+};
