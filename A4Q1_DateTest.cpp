@@ -28,31 +28,36 @@
 
 TEST(functions, DayAdded)
 {
-    Date date{ 0,0,1 }; //year, month, day
+    Date date{ 2023,1,1 }; //year, month, day
 
     Date temp = addOneDay(date);
     CHECK_EQUAL(2, temp.day);
 
-    Date date1{ 0,2,28 }; //year, month, day
+    Date date1{ 2024,2,28 }; //year, month, day
 
-    Date temp1 = addOneDay(date1);
+    Date temp1 = addOneDay(date1); //Leap year check
+    CHECK_EQUAL(29, temp1.day);
+    CHECK_EQUAL(2, temp1.month);
+
+    temp1 = addOneDay(temp1); //Leap year check
     CHECK_EQUAL(1, temp1.day);
     CHECK_EQUAL(3, temp1.month);
 
-    Date date2{ 0,3,31 }; //year, month, day
+    Date date2{ 2023,3,31 }; //year, month, day
 
     Date temp2 = addOneDay(date2);
     CHECK_EQUAL(1, temp2.day);
+    CHECK_EQUAL(4, temp2.month);
 }
 
 TEST(functions, MonthsAdded)
 {
-    Date date{ 0,2,0 }; //year, month, day
+    Date date{ 2023,2,1 }; //year, month, day
 
     Date temp = addOneMonth(date);
     CHECK_EQUAL(3, temp.month);
 
-    Date date1{ 0,12,0 }; //year, month, day
+    Date date1{ 2023,12,1 }; //year, month, day
 
     Date temp1 = addOneMonth(date1);
     CHECK_EQUAL(1, temp1.month);
@@ -60,19 +65,23 @@ TEST(functions, MonthsAdded)
 
 TEST(functions, YearsAdded)
 {
-    Date date{ 3,0,0 }; //year, month, day
+    Date date{ 2023,1,1 }; //year, month, day
 
     Date temp = addOneYear(date);
-    CHECK_EQUAL(4, temp.year);
+    CHECK_EQUAL(2024, temp.year);
 
 }
 
 TEST(functions, SmartPointerAdded)
 {
-    auto dates = std::make_unique<Date>(1, 1, 1);
+    auto dates = std::make_unique<Date>(2023, 5, 1);
     auto temp = addOneYear(*dates);
+    temp = addOneMonth(*dates);
+    temp = addOneDay(*dates);
 
     //std::cout << temp.year << "\n";
-    CHECK_EQUAL(2, temp.year);
+    CHECK_EQUAL(2, temp.day);
+    CHECK_EQUAL(6, temp.month);
+    CHECK_EQUAL(2024, temp.year);
 }
 

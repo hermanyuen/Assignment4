@@ -41,6 +41,8 @@ public:
 		//SimpleClass* temp = &aSimpleClass;
 		f4(&aSimpleClass);
 	}
-	void f4(SimpleClass* aSimpleClass);
+	void f4(SimpleClass* aSimpleClass) {
+	
+	};
 
 };

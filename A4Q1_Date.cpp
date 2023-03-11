@@ -35,7 +35,11 @@
 Date addOneDay(Date& date) {
     date.day += 1;
     if (date.month == 2) {
-        if (date.day > 28) {
+        if (date.year % 4 == 0 && date.day > 29) {
+            date.day = 1;
+            date.month++;
+        }
+        else if (date.year % 4 > 0 && date.day > 28) {
             date.day = 1;
             date.month++;
         }
@@ -49,6 +53,7 @@ Date addOneDay(Date& date) {
             }
             else {
                 date.month = 1;
+                date.year++;
             }
         }
     }
@@ -64,6 +69,7 @@ Date addOneDay(Date& date) {
 Date addOneMonth(Date& date) {
     if (date.month == 12) {
         date.month = 1;
+        date.year++;
     }
     else {
         date.month += 1;
