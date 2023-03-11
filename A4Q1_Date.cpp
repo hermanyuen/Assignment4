@@ -1,7 +1,7 @@
 #include "A4Q1_Date.h"
-
 #include <stdexcept>
 #include <ostream>
+#include <iostream>
 
 //Write functions to:
 //  add one day, 
@@ -25,3 +25,59 @@
 //For example, the following function returns by value a new Date instance with one day added to the passed-in date:
 //
 //Date addOneDay(const Date& date);
+
+//struct Date
+//{
+//    int year;
+//    int month;
+//    int day;
+//};
+Date addOneDay(Date& date) {
+    date.day += 1;
+    if (date.month == 2) {
+        if (date.year % 4 == 0 && date.day > 29) {
+            date.day = 1;
+            date.month++;
+        }
+        else if (date.year % 4 > 0 && date.day > 28) {
+            date.day = 1;
+            date.month++;
+        }
+    }
+    else if (date.month == 1 || date.month == 3 || date.month == 5 ||
+        date.month == 7 || date.month == 8 || date.month == 10 || date.month == 12) {
+        if (date.day > 31) {
+            date.day = 1;
+            if (date.month != 12) {
+                date.month++;
+            }
+            else {
+                date.month = 1;
+                date.year++;
+            }
+        }
+    }
+    else {
+        if (date.day > 30) {
+            date.day = 1;
+            date.month++;
+        }
+    }
+    return date;
+}
+
+Date addOneMonth(Date& date) {
+    if (date.month == 12) {
+        date.month = 1;
+        date.year++;
+    }
+    else {
+        date.month += 1;
+    }
+    return date;
+}
+
+Date addOneYear(Date& date) {
+    date.year += 1;
+    return date;
+}

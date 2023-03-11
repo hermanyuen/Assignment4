@@ -14,3 +14,14 @@
 //
 //Notice that both std::stringstream and std::cout may be passed as the first argument. Both inherit from std::ostream and thus may be used where ever a std::ostream& is used. 
 //This is our first use of inheritance in C++. We'll do much more with inheritance as the course progresses.
+
+void write(std::ostream& os, int value) {
+	os << value;
+}
+void write(std::ostream& os, float fValue) {
+	os << fValue;
+}
+void write(std::ostream& os, std::string sValue) {
+	os << sValue;
+}
+
